@@ -1,0 +1,31 @@
+﻿<Window x:Class="SqlColumnRemover.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SqlColumnRemover"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="696.934" Width="1277.344">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="462*"/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="121*"/>
+            <ColumnDefinition Width="237*"/>
+            <ColumnDefinition Width="298*"/>
+            <ColumnDefinition Width="118*"/>
+        </Grid.ColumnDefinitions>
+        <RichTextBox x:Name="txtSrc" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="173" Margin="29,117,0,0" VerticalAlignment="Top" Width="1215" TextChanged="txtSrc_TextChanged" >
+            <FlowDocument/>
+        </RichTextBox>
+        <Label Content="Source" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,91,0,0" Width="76"/>
+        <RichTextBox x:Name="txtRes" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="173" Margin="29,357,0,0" VerticalAlignment="Top" Width="1215">
+            <FlowDocument/>
+        </RichTextBox>
+        <Label Content="Result" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,326,0,0" Width="76"/>
+        <Button Content="Execute" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.Column="2"/>
+        <TextBox x:Name="txtColumns" HorizontalAlignment="Left" Height="23" Margin="29,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="406"/>
+        <Label Content="Columns" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,24,0,0" Width="76"/>
+
+    </Grid>
+</Window>
