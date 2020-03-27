@@ -28,6 +28,26 @@ namespace SqlColumnRemover
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (rdbAdd.IsChecked.Value)
+            {
+                this.executeColumnsAdd();
+                return;
+            }
+
+            if (rdbRemove.IsChecked.Value)
+            {
+                this.executeColumnsRemove();
+                return;
+            }
+        }
+
+        private void executeColumnsAdd()
+        {
+
+        }
+
+        private void executeColumnsRemove()
+        {
             TextRange textRange = new TextRange(txtSrc.Document.ContentStart, txtSrc.Document.ContentEnd);
             if (String.IsNullOrEmpty(txtColumns.Text))
             {
@@ -36,10 +56,10 @@ namespace SqlColumnRemover
 
             String[] targetColumns = txtColumns.Text.Replace(" ", "").Split(',');
             String src = textRange.Text;
-            String[] lines = src.Split(new[] { "\r\n", "\r", "\n" },StringSplitOptions.RemoveEmptyEntries);
+            String[] lines = src.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
             String header = lines[0].Replace("\"", "");
             header = header.Replace("`", "");
-            String strCol = header.Substring(header.IndexOf("(") +1 , header.IndexOf(")") - header.IndexOf("(") -1);
+            String strCol = header.Substring(header.IndexOf("(") + 1, header.IndexOf(")") - header.IndexOf("(") - 1);
             String[] columns = strCol.Split(new[] { "`,`", "," }, StringSplitOptions.None);
             int targetIndex;
             String[] result = new String[lines.Length];
@@ -51,7 +71,8 @@ namespace SqlColumnRemover
                     continue;
                 }
 
-                if (lines[i].StartsWith("INSERT")) {
+                if (lines[i].StartsWith("INSERT"))
+                {
                     String tmpHead = lines[i];
                     for (int j = 0; j < targetColumns.Length; j++)
                     {
@@ -88,7 +109,7 @@ namespace SqlColumnRemover
                 {
                     result[i] = tmpRes;
                 }
-                
+
             }
 
             string res = String.Join("\r\n", result);
@@ -103,6 +124,18 @@ namespace SqlColumnRemover
                 txtRes.Document.Blocks.Clear();
             }
              
+        }
+
+        private void rdbRemove_Checked(object sender, RoutedEventArgs e)
+        {
+            lblValues.Visibility = Visibility.Visible;
+            txtValues.Visibility = Visibility.Visible;
+        }
+
+        private void rdbRemove_Unchecked(object sender, RoutedEventArgs e)
+        {
+            lblValues.Visibility = Visibility.Hidden;
+            txtValues.Visibility = Visibility.Hidden;
         }
     }
 }
