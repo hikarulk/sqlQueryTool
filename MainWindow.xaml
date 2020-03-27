@@ -15,17 +15,21 @@
             <ColumnDefinition Width="298*"/>
             <ColumnDefinition Width="118*"/>
         </Grid.ColumnDefinitions>
-        <RichTextBox x:Name="txtSrc" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="173" Margin="29,117,0,0" VerticalAlignment="Top" Width="1215" TextChanged="txtSrc_TextChanged" >
+        <RichTextBox x:Name="txtSrc" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="173" Margin="29,226,0,0" VerticalAlignment="Top" Width="1215" TextChanged="txtSrc_TextChanged" >
             <FlowDocument/>
         </RichTextBox>
-        <Label Content="Source" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,91,0,0" Width="76"/>
-        <RichTextBox x:Name="txtRes" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="173" Margin="29,357,0,0" VerticalAlignment="Top" Width="1215">
+        <Label Content="Source" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,200,0,0" Width="76"/>
+        <RichTextBox x:Name="txtRes" Grid.ColumnSpan="6" HorizontalAlignment="Left" Height="173" Margin="29,466,0,0" VerticalAlignment="Top" Width="1215">
             <FlowDocument/>
         </RichTextBox>
-        <Label Content="Result" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,326,0,0" Width="76"/>
+        <Label Content="Result" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,435,0,0" Width="76"/>
         <Button Content="Execute" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.Column="2"/>
-        <TextBox x:Name="txtColumns" HorizontalAlignment="Left" Height="23" Margin="29,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="406"/>
-        <Label Content="Columns" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,24,0,0" Width="76"/>
+        <TextBox x:Name="txtColumns" HorizontalAlignment="Left" Height="23" Margin="29,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="406"/>
+        <Label Content="Columns" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,62,0,0" Width="76"/>
+        <RadioButton x:Name="rdbAdd" Content="Add" HorizontalAlignment="Left" Height="23" Margin="29,34,0,0" VerticalAlignment="Top" Width="51" IsChecked="True"/>
+        <RadioButton x:Name="rdbRemove" Content="Remove" HorizontalAlignment="Left" Height="23" Margin="102,34,0,0" VerticalAlignment="Top" Width="137" Checked="rdbRemove_Checked" Unchecked="rdbRemove_Unchecked"/>
+        <TextBox x:Name="txtValues" HorizontalAlignment="Left" Height="23" Margin="29,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="406" Visibility="Hidden"/>
+        <Label x:Name="lblValues" Content="Values" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,123,0,0" Width="76" Visibility="Hidden"/>
 
     </Grid>
 </Window>
